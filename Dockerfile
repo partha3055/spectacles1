@@ -12,6 +12,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 RUN composer install
 
+RUN php artisan config:clear
+RUN php artisan cache:clear
+
 EXPOSE 10000
 
 CMD php artisan serve --host=0.0.0.0 --port=10000
