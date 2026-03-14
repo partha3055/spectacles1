@@ -10,10 +10,7 @@ RUN apt-get update && apt-get install -y git unzip \
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
-RUN composer install
-
-RUN php artisan config:clear
-RUN php artisan cache:clear
+RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 10000
 
